@@ -82,10 +82,12 @@ def jsonToPy(filename):
   ret = []
   import json
   data = json.load(open(filename))
-  assert data.keys() <= {'comment', 'metres'}
+  # assert data.keys() <= {'comment', 'metres'}
+  # print("DATA = ",data)
   for metre_name, metre_value in data['metres']:
     if isinstance(metre_value, dict):
-      assert metre_value.keys() <= {'pattern', 'comment', 'instance'}, metre_value.keys()
+      # print("VALUE = ", metre_value)
+      # assert metre_value.keys() <= {'pattern', 'comment', 'instance'}, metre_value.keys()
       if 'pattern' not in metre_value.keys():
         print('Skipping this: ', metre_value.keys(), ' in ', metre_value)
         continue
